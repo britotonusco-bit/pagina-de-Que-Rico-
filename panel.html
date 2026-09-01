@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel — La Esquina del Sabor</title>
+<link rel="stylesheet" href="panel.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div><strong>🍴 La Esquina del Sabor</strong><span>Panel privado</span></div>
+  <button id="btnSalir" class="ghost hidden" onclick="cerrarSesion()">Salir</button>
+</header>
+
+<main>
+  <section id="loginView" class="card login-card">
+    <h1>🔐 Panel de administración</h1>
+    <p>Entra para revisar y validar pedidos.</p>
+    <form id="loginForm">
+      <label>Correo<input id="loginEmail" type="email" required autocomplete="username"></label>
+      <label>Contraseña<input id="loginPassword" type="password" required autocomplete="current-password"></label>
+      <button class="primary" type="submit">Entrar</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </section>
+
+  <section id="panelView" class="hidden">
+    <div class="stats">
+      <button onclick="filtrar('verificacion')"><b id="nVerificacion">0</b><span>🟡 Verificación</span></button>
+      <button onclick="filtrar('validado')"><b id="nValidado">0</b><span>🟢 Validados</span></button>
+      <button onclick="filtrar('preparacion')"><b id="nPreparacion">0</b><span>🍳 Preparación</span></button>
+      <button onclick="filtrar('camino')"><b id="nCamino">0</b><span>🛵 En camino</span></button>
+      <button onclick="filtrar('invalido')"><b id="nInvalido">0</b><span>🔴 Invalidados</span></button>
+    </div>
+
+    <div class="toolbar">
+      <h2>Pedidos</h2>
+      <div>
+        <select id="filtroSucursal" onchange="renderPedidos()">
+          <option value="">Todas las sucursales</option>
+          <option>Centro</option><option>Cuba</option><option>Circunvalar</option>
+        </select>
+        <button class="secondary" onclick="cargarPedidos()">↻ Actualizar</button>
+      </div>
+    </div>
+
+    <div id="pedidoList" class="orders"></div>
+  </section>
+</main>
+<script src="panel.js"></script>
+</body>
+</html>
