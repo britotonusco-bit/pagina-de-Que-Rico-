@@ -1,6 +1,11 @@
-// Configuración pública de Supabase para La Esquina del Sabor.
-// NO coloques aquí una secret/service_role key.
+/*
+  CONFIGURACIÓN DE LA ESQUINA DEL SABOR
+  -------------------------------------
+  1. Crea un proyecto en Supabase.
+  2. Copia aquí la URL del proyecto y la clave ANON/PUBLIC.
+  3. NUNCA pongas aquí la service_role key.
+*/
 window.SUPABASE_CONFIG = {
-  url: "https://renuocpjntmwpkyjyq.supabase.co",
-  anonKey: "sb_publishable_4cM445btrYBgGOo--NvKBA_WS5cM7pj"
+  url: "PEGA_AQUI_LA_URL_DE_TU_PROYECTO_SUPABASE",
+  anonKey: "PEGA_AQUI_LA_CLAVE_ANON_PUBLICA"
 };
